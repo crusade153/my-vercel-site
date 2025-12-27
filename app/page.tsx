@@ -1,32 +1,41 @@
 // src/app/page.tsx
 import Link from "next/link";
-export default function Home() {
+
+export default function HomePage() {
   return (
-    // [1] 전체 화면 설정: 어두운 배경(bg-slate-950), 내용물 중앙 정렬(flex...)
-    <main className="flex min-h-screen flex-col items-center justify-center bg-slate-950 p-10">
+    <div className="flex min-h-[calc(100vh-64px)] items-center justify-center p-4">
+      <div className="w-full max-w-[400px] bg-white p-8 rounded-2xl shadow-xl border border-gray-100 text-center">
+        
+        {/* 브랜드 로고 강조 */}
+        <div className="mb-8 flex flex-col items-center">
+          <div className="w-12 h-12 bg-[#FF4444] rounded-lg flex items-center justify-center text-white font-extrabold text-2xl mb-4 shadow-lg shadow-red-200">
+            H
+          </div>
+          <h1 className="text-2xl font-bold text-gray-800">원가관리 시스템</h1>
+          <p className="text-gray-400 text-sm mt-2">Harim Industry ERP Login</p>
+        </div>
 
-      {/* [2] 카드 박스 만들기 */}
-      <div className="w-full max-w-md p-8 bg-slate-900 rounded-2xl shadow-[0_0_50px_-12px_rgb(59,130,246)] border border-slate-800 text-center">
+        <form className="space-y-4 text-left">
+          <div>
+            <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">Employee ID</label>
+            <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#FF4444] focus:ring-1 focus:ring-[#FF4444] transition-all" placeholder="사번을 입력하세요" />
+          </div>
+          <div>
+            <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">Password</label>
+            <input type="password" className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#FF4444] focus:ring-1 focus:ring-[#FF4444] transition-all" placeholder="비밀번호" />
+          </div>
 
-         {/* [3] 멋진 그라데이션 제목 */}
-        <h1 className="mb-6 text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
-          Level Up!
-        </h1>
+          <Link href="/dashboard" className="block mt-6">
+            <button type="button" className="w-full bg-[#FF4444] hover:bg-[#E03333] text-white font-bold py-3.5 rounded-lg shadow-md shadow-red-200 transition-all transform active:scale-95">
+              시스템 접속
+            </button>
+          </Link>
+        </form>
 
-        {/* 본문 텍스트 */}
-        <p className="text-slate-300 mb-10 text-xl leading-relaxed">
-          구글 앱스스크립트의 한계를 넘어,<br/>
-          <strong>Vercel & Next.js</strong>의 세계에 오신 것을<br/>
-          환영합니다.
+        <p className="mt-8 text-xs text-gray-400">
+          © 2025 Harim Industry Co., Ltd. All rights reserved.
         </p>
-
-<Link href="/dashboard">
-  <button className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-lg cursor-pointer">
-    다음 단계 시작하기 🚀
-  </button>
-</Link>
-
       </div>
-    </main>
+    </div>
   );
 }
